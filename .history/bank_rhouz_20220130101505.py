@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from random import randint
 from client import Client
 from exception import FirstEx, SecondEx
-# import eel
+import eel
 
 # class Account(metaclass=ABCMeta):
 #     @abstractmethod
@@ -28,6 +28,7 @@ from exception import FirstEx, SecondEx
 
 class Vault(Client):
 
+    @eel.expose
     def __init__(self):
         # [key][0] => name ; [key][1] => password, [key][]
         super().__init__()
@@ -37,9 +38,11 @@ class Vault(Client):
         self.balance = 0
         self.montantDepot = 0
 
+    @eel.expose
     def getNumAcc(self):
         return self.numAcc
 
+    @eel.expose
     def displayInfo(self):
         if self.name != None:
             print("📓📓📓📓📓📓📓📓📓📓📓📓📓📓📓📓")
@@ -49,9 +52,11 @@ class Vault(Client):
             self.Balance()
             print("📓📓📓📓📓📓📓📓📓📓📓📓📓📓📓📓")
 
+    @eel.expose
     def getEmail(self):
         return f'{self.name}@BANK-RHOUZLANE.com'
 
+    @eel.expose
     def connexion(self, numAcc, password):
         print()
         if numAcc in self.bancaire.keys():
@@ -66,6 +71,7 @@ class Vault(Client):
                 print()
                 return False
 
+    @eel.expose
     def retrait(self, montantRetrait):
         print()
         if montantRetrait > self.bancaire[self.numAcc][2]:
@@ -79,9 +85,11 @@ class Vault(Client):
             self.Balance()
         print()
 
+    @eel.expose
     def getmontantRetrait(self):
         return self.montantRetrait
 
+    @eel.expose
     def deposer(self, montantDepot):
         print()
         self.bancaire[self.numAcc][2] += montantDepot
@@ -89,9 +97,11 @@ class Vault(Client):
         self.Balance()
         print()
 
+    @eel.expose
     def getmontantDepot(self):
         return self.montantDepot
 
+    @eel.expose
     def Balance(self):
         print("Votre solde est de : ",
               self.bancaire[self.numAcc][2])

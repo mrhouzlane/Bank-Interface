@@ -1,15 +1,14 @@
 from bank_rhouz import Vault
-# import eel
-# eel.init('static')
-# eel.start('index.html', mode='chrome-app', port=8080,
-#           cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])
+import eel
+eel.init('static')
+
 
 UserCase = Vault()
 while True:
     print()
-    print("💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰")
+    print("💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰")
     print("💳   Welcome to RHOUZLANE Bank 2022   💳")
-    print("💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰")
+    print("💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰💰")
     print("👍 CHOIX 1 : Créer un compte")
     print("👍 CHOIX 2 : Accéder à votre compte")
     print("👍 CHOIX 3 : Afficher Informations de votre compte")
@@ -69,3 +68,6 @@ while True:
         UserCase.displayInfo()
     elif Choix == 4:
         quit()
+
+eel.start('index.html', mode='chrome-app', port=8080,
+          cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])

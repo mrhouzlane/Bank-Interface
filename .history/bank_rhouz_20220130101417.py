@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from random import randint
 from client import Client
 from exception import FirstEx, SecondEx
-# import eel
+import eel
 
 # class Account(metaclass=ABCMeta):
 #     @abstractmethod
@@ -28,6 +28,7 @@ from exception import FirstEx, SecondEx
 
 class Vault(Client):
 
+    @eel.expose
     def __init__(self):
         # [key][0] => name ; [key][1] => password, [key][]
         super().__init__()
@@ -37,6 +38,7 @@ class Vault(Client):
         self.balance = 0
         self.montantDepot = 0
 
+    @eel.expose
     def getNumAcc(self):
         return self.numAcc
 
